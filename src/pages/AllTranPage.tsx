@@ -24,6 +24,7 @@ function ViewAllTranPAge(props: Props) {
   let [transactionFiltered, setTransactionFiltered] = useState<
     TransactionModel[]
   >([]);
+  let [feedback, setFeedback] = useState(false);
   let [showedItems, setShowedItems] = useState(5);
   let [showDialog, setShowDialog] = useState(false);
   let [transactionHolder, setTransactionHolder] = useState<TransactionModel>();
@@ -48,6 +49,15 @@ function ViewAllTranPAge(props: Props) {
   return (
     <div className=" select-none relative bg-slate-300 min-h-[100vh]  ">
       <Header />
+      {feedback ? (
+        <motion.div
+          initial={{ x: -200 }}
+          animate={{ x: 0 }}
+          className="absolute top-[15%]   right-[37%] px-10 py-5 rounded-lg bg-white w-fit"
+        >
+          Transaction Has Been Added
+        </motion.div>
+      ) : null}
       {showDialog ? (
         <dialog className=" font-bold absolute top-[40%] border-2 border-black h-24 w-96 rounded-xl flex flex-col gap-6 justify-center items-center">
           Are you Sure Want to Delete this Transaction
@@ -67,6 +77,13 @@ function ViewAllTranPAge(props: Props) {
               onClick={() => {
                 setTransactionHolder(undefined);
                 setShowDialog(false);
+                setTimeout(() => {
+                  setFeedback(true);
+                }, 500);
+
+                setTimeout(() => {
+                  setFeedback(false);
+                }, 2000);
               }}
             >
               Canel
