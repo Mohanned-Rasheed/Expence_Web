@@ -53,9 +53,9 @@ function ViewAllTranPAge(props: Props) {
         <motion.div
           initial={{ x: -200 }}
           animate={{ x: 0 }}
-          className="absolute top-[15%]   right-[37%] px-10 py-5 rounded-lg bg-white w-fit"
+          className="absolute top-[15%] right-[37%] px-10 py-5 rounded-lg bg-white w-fit"
         >
-          Transaction Has Been Added
+          Transaction Has Been Deleted
         </motion.div>
       ) : null}
       {showDialog ? (
@@ -68,6 +68,14 @@ function ViewAllTranPAge(props: Props) {
                 setShowDialog(false);
                 setTransactionFiltered([]);
                 dispatch(updateDB());
+
+                setTimeout(() => {
+                  setFeedback(true);
+                }, 250);
+
+                setTimeout(() => {
+                  setFeedback(false);
+                }, 2000);
               }}
               className="text-red-600"
             >
@@ -77,13 +85,6 @@ function ViewAllTranPAge(props: Props) {
               onClick={() => {
                 setTransactionHolder(undefined);
                 setShowDialog(false);
-                setTimeout(() => {
-                  setFeedback(true);
-                }, 500);
-
-                setTimeout(() => {
-                  setFeedback(false);
-                }, 2000);
               }}
             >
               Canel

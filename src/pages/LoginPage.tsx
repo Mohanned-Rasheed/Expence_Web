@@ -35,7 +35,11 @@ function LoginPage() {
               if (password.length === 0) {
                 setErr("Please Write Your Password");
                 return;
-              } else if (password.length < 6 && password.length > 0) {
+              } else if (
+                password.length < 6 &&
+                password.length > 0 &&
+                !sginInFlag
+              ) {
                 setErr("Password Too Short");
                 return;
               }
