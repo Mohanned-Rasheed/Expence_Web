@@ -2,74 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { TransactionModel } from "../../models/TransactionsModel";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import { db, auth } from "../../firebase/config";
-const initTransaction: TransactionModel[] = [
-  // {
-  //   svgPah: "expence",
-  //   title: "food",
-  //   date: new Date(),
-  //   cost: 100,
-  // },
-  // {
-  //   svgPah: "subscription",
-  //   title: "shirt",
-  //   date: new Date(),
-  //   cost: 100,
-  // },
-  // {
-  //   svgPah: "transfer",
-  //   title: "bruh",
-  //   date: new Date("2024-02-22 14:10:28.016582"),
-  //   cost: 100,
-  // },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "shop",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "shirt",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "pants",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "soda",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "jucie",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "latest",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "jango",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-  //   {
-  //     svgPah: EXPENSEsvg,
-  //     title: "loot",
-  //     date: new Date(),
-  //     cost: 100,
-  //   },
-];
+const initTransaction: TransactionModel[] = [];
 
 const transactionSlice = createSlice({
   name: "transaction",

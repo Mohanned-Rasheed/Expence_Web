@@ -21,7 +21,7 @@ function TranscationsList(props: Props) {
   const transactions = useSelector((state: RootState) => state.transaction);
   const nav = useNavigate();
   const goToAllTran = () => {
-    nav("/AllTransactionsPage");
+    nav("/Expence_Web/AllTransactionsPage");
   };
 
   // console.log(HISTORYsvg);

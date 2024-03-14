@@ -6,10 +6,12 @@ import AllTranPage from "./pages/AllTranPage.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./state/store.ts";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase/config.ts";
+import { auth, db } from "./firebase/config.ts";
 import { setUser } from "./state/Firebase/userSlice.ts";
 import { useState } from "react";
 import Loader from "./components/Loader.tsx";
+import { doc, getDoc } from "firebase/firestore";
+import { getTransactionFromDB } from "./state/Transaction/TransactionSlice.ts";
 
 function App() {
   let [isLodaing, setIsLoading] = useState(false);
@@ -24,14 +26,41 @@ function App() {
       setIsLoading(true);
     }
   });
+
+  const getTransaction = async () => {
+    const docRef = doc(db, "Transactions", auth.currentUser!.uid);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      let data = docSnap.data();
+      dispatch(getTransactionFromDB(data));
+    } else {
+      console.log("No such document!");
+    }
+    // const querySnapshot = await getDocs(collection(db, "Transactions"));
+    // const queryData = querySnapshot.docs;
+    // queryData.map((t) => {
+    //   if (t.id === auth.currentUser?.uid) {
+    //     let data = t.data();
+    //     dispatch(getTransactionFromDB(data));
+    //   }
+    // });
+  };
+  getTransaction();
+
   const user = useSelector((state: RootState) => state.user);
   return isLodaing ? (
     <BrowserRouter>
       {user.currentUser ? (
         <Routes>
           <Route path="*" element={<HomePage />}></Route>
-          <Route path="/addTransaction" element={<AddTransaction />}></Route>
-          <Route path="/AllTransactionsPage" element={<AllTranPage />}></Route>
+          <Route
+            path="/Expence_Web/addTransaction"
+            element={<AddTransaction />}
+          ></Route>
+          <Route
+            path="/Expence_Web/AllTransactionsPage"
+            element={<AllTranPage />}
+          ></Route>
         </Routes>
       ) : (
         <LoginPage />

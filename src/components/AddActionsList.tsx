@@ -25,7 +25,7 @@ function AddActions(props: Props) {
           return (
             <div
               onClick={() => {
-                let path = `addTransaction`;
+                let path = `/Expence_Web/addTransaction`;
                 navigate(path, {
                   state: {
                     svg: t.svgPath,

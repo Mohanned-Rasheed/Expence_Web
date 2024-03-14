@@ -33,7 +33,7 @@ function AddTransaction(props: Props) {
         <motion.div
           initial={{ x: -200 }}
           animate={{ x: 0 }}
-          className="absolute top-[15%]   right-[37%] px-10 py-5 rounded-lg bg-white w-fit"
+          className="absolute top-[15%] right-[1%] px-10 py-5 rounded-lg bg-white w-fit"
         >
           Transaction Has Been Added
         </motion.div>

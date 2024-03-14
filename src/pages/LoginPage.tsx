@@ -21,7 +21,7 @@ function LoginPage() {
   function isValidPassword(str: string) {
     return /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$])/.test(str);
   }
-
+  
   return (
     <main className="flex justify-center items-center bg-slate-300 w-[100vw] h-[100vh] ">
       <section className="rounded-md  h-[550px] px-10  bg-white flex justify-center items-center flex-col">
@@ -84,7 +84,7 @@ function LoginPage() {
               }}
               value={email}
               placeholder=" Type Your Email"
-              className=" border-b-gray-200 border-b outline-none"
+              className="  border-b-gray-200 border-b outline-none"
               type="email"
             ></input>
           </label>
