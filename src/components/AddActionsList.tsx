@@ -1,6 +1,5 @@
 import { AddActionsModels } from "../models/AddActionsModel.ts";
 import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import TypeTransaction from "../models/TransactionsModel.ts";
 import { motion } from "framer-motion";
 interface Props {}
@@ -25,14 +24,12 @@ function AddActions(props: Props) {
           return (
             <div
               onClick={() => {
-                let path = `/Expence_Web/addTransaction`;
-                navigate(path, {
+                navigate("/Expence_Web/addTransaction", {
                   state: {
                     svg: t.svgPath,
                     title: t.title,
                   },
                 });
-                <Navigate to={"addTransaction"} state={{}} />;
               }}
               className={`hover:bg-green-100 flex max-md:justify-center gap-8 items-center min-h-[10vh] min-w-[100%] border-b cursor-pointer ${t.backGroundColor} `}
             >

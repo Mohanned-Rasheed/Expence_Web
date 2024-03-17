@@ -52,9 +52,7 @@ function App() {
     <BrowserRouter basename="/Expence_Web">
       {user.currentUser ? (
         <Routes>
-          <Route path="*" Component={HomePage}>
-            {" "}
-          </Route>
+          <Route path="*" Component={HomePage}></Route>
           <Route
             path="/Expence_Web/addTransaction"
             Component={AddTransaction}
