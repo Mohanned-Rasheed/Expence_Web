@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -27,7 +27,14 @@ function AddTransaction(props: Props) {
   const location = useLocation();
 
   return (
-    <div className=" relative bg-slate-300 min-h-[100vh] max-lg:pb-[5vh] ">
+    <div
+      onLoad={() => {
+        if (location.state.title == null) {
+          navigate("/");
+        }
+      }}
+      className=" relative bg-slate-300 min-h-[100vh] max-lg:pb-[5vh] "
+    >
       <Header />
       {feedback ? (
         <motion.div
