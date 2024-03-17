@@ -1,8 +1,8 @@
 import LoginPage from "./pages/LoginPage.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.tsx";
-import AddTransaction from "./pages/AddTransactionPage.tsx";
-import AllTranPage from "./pages/AllTranPage.tsx";
+import AddTransaction from "./pages/addTransaction.tsx";
+import AllTranPage from "./pages/AllTransactionsPage.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "./state/store.ts";
 import { onAuthStateChanged } from "firebase/auth";
@@ -52,14 +52,16 @@ function App() {
     <BrowserRouter>
       {user.currentUser ? (
         <Routes>
-          <Route path="*" element={<HomePage />}></Route>
+          <Route path="*" Component={HomePage}>
+            {" "}
+          </Route>
           <Route
             path="/Expence_Web/addTransaction"
-            element={<AddTransaction />}
+            Component={AddTransaction}
           ></Route>
           <Route
             path="/Expence_Web/AllTransactionsPage"
-            element={<AllTranPage />}
+            Component={AllTranPage}
           ></Route>
         </Routes>
       ) : (
