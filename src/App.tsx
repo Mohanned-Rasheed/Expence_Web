@@ -49,7 +49,7 @@ function App() {
 
   const user = useSelector((state: RootState) => state.user);
   return isLodaing ? (
-    <BrowserRouter>
+    <BrowserRouter basename="/Expence_Web">
       {user.currentUser ? (
         <Routes>
           <Route path="*" Component={HomePage}>
