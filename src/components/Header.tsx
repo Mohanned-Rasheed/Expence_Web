@@ -11,7 +11,7 @@ function Header(props: Props) {
   return (
     <div className="sticky bg-white min-h-[10vh] border-b-2 border-black">
       <section className=" flex items-center justify-between min-h-[10vh]">
-        <div className="pl-8 font-medium text-xl">Expences</div>
+        <div className="pl-8 font-medium text-xl">Expense</div>
         <section className="flex gap-12 pr-[2vw]">
           <div className="select-none max-md:text-sm ">
             Hi {auth.currentUser?.email}
